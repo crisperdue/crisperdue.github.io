@@ -9,15 +9,114 @@
     <meta name="theme-color" content="#157878">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <script src="https://rawgit.com/crisperdue/prooftoys/master/js/boilerplate.js"></script>
 <style>
 /* This is what "s" tags become */
-span.mathColor {
+span.mathColor, s {
     font-family: STIXGeneral, serif;
+    text-decoration: none;
 }
 </style>
 <script>
-$(function() { Toy.mathifyAll(); });
+Toy = {};
+
+/**
+ * Replaces ASCII math symbols in the given HTML text with HTML
+ * entities for math, and with alphanumeric names in italics.
+ */
+Toy.mathMarkup = function(text) {
+  // Substitutions for "forall" and "exists" consume a trailing blank,
+  // helping to push them up next to following text.
+  var rex =
+    /[-!<=>*/&|]+|[_^].|\bforall( |\b)|\bexists( |\b)|[a-zA-Z]+[0-9]*/g;
+  return text.replace(rex, function(s) {
+    if (s.match(/^\^[a-z]/)) {
+      return '<sup><i>' + s[1] + '</i></sup>';
+    } else if (s[0] === '^') {
+      return '<sup>' + s.slice(1) + '</sup>';
+    } else if (s.match(/^_[a-z]/)) {
+      return '<sub><i>' + s[1] + '</i></sub>';
+    } else if (s[0] === '_') {
+      return '<sub>' + s.slice(1) + '</sub>';
+    } else if (s.match(/^[a-z][0-9]*$/)) {
+      // Variable name, not a constant, see Toy.isVariableName in expr.js.
+      return '<i>' + s + '</i>';
+    } else {
+      // It is a constant name.
+      switch(s) {
+      case '=>': return '&rArr;';
+      case '==': return '&equiv;';
+      case '!=': return '&ne;';
+      case '>=': return '&ge;';
+      case '<=': return '&le;';
+      case '-': return '&minus;';
+      case '*': return '&sdot;';
+      case '/': return '&#x2215;';          // Division slash
+      case 'forall': return '&forall;';
+      case 'forall ': return '&forall;';
+      case 'exists': return '&exist;';
+      case 'exists ': return '&exist;';
+      case '&':
+      case 'and':
+        return '&and;';
+      case '|':
+      case 'or':
+        return '&or;';
+      case 'not':
+        return '&not;';
+      case 'in':
+        return '&in;';
+      case 'inter':
+        return '&#x2229;';
+      case 'union':
+        return '&#x222A;';
+      case 'Inter':
+        return '&#x22C2;';
+      case 'Union':
+        return '&#x22C3;';
+      case 'CC':
+        return '&#x2102;';
+      case 'NN':
+        return '&#x2115;';
+      case 'QQ':
+        return '&#x211A;';
+      case 'RR':
+        return '&#x211D;';
+      case 'ZZ':
+        return '&#x2124;';
+      case 'epsilon':
+        // "Lunate epsilon", e.g. for epsilon/delta proofs.
+        return '&#x03F5;';
+      case 'infinity':
+        return '&infin;';
+      case 'QED':
+        return '<span style="color: black">&#x220E;</span>';
+      default:
+        return s;
+      }
+    }
+  });
+};
+
+
+/**
+ * Converts all <S> element contents into math-oriented HTML.
+ * Ignores all HTML markup within each element, though HTML
+ * entities are OK.
+ */
+Toy.mathifyAll = function() {
+  var nodes = document.querySelectorAll('s');
+  for (var i = 0; i < nodes.length; i++) {
+    var node = nodes[i];
+    console.log('Mathifying', node);
+    node.innerHTML = Toy.mathMarkup(node.innerText);
+    console.log(node.innerText);
+  }
+};
+document.addEventListener("DOMContentLoaded", function(event) {
+  console.log('Loaded!');
+  console.log('Toy =', Toy);
+  Toy.mathifyAll();
+});
 </script>
   </head>
   <body>

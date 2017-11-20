@@ -10,16 +10,19 @@ Wide use:
 - axiomatics
 - problem-solving approach
 
+## Role of the assistant
+
+- User drives (selects strategy)
+- Computer implements clerical steps
+
 ## User interface
 
 - Web-based
 - Highly interactive
+- Hovers
 - Selection
-
-## User interaction style
-
-- User drives (selects strategy)
-- Computer implements clerical steps
+- Menu sensitive to selection
+- Step suggestion for each menu item
 
 ## Logic
 

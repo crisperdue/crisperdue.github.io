@@ -53,7 +53,6 @@ Wide use:
 
 - Kernel
 - Optimized for working with individuals, functions and predicates on individuals
-
 - Client-side JavaScript
 
 ## Use of JavaScript

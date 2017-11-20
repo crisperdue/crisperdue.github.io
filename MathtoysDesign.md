@@ -23,6 +23,7 @@ Wide use:
 - Selection
 - Menu sensitive to selection
 - Step suggestion for each menu item
+- User-selectable "algebra mode"
 
 ## Logic
 
@@ -49,8 +50,8 @@ Wide use:
 - Rewriting, including "= T"
 - Fine-grain management of assumptions
 - Automatic simplification
-- Automatic mgmt of math types (closure)
-
+- Automatic mgmt of math types (closure of operations)
+- Enough higher-order matching to support e.g. forall {x. p} vs. forall {x. p x}
 
 ## System implementation
 

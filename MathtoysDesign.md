@@ -25,6 +25,8 @@ Wide use:
 
 - Church's simple type theory
 - Minimal, Peter Andrews version with only type schemas
+- Otherwise no schemas, just variables
+- Function and predicate variables
 - Hilbert-style deduction
 - Support definitions as abbreviations
 - Also definitions justified by existence
@@ -36,9 +38,8 @@ Wide use:
 
 ## Axiomatics
 
-- Hilbert-style system
-- Actual variables, not schemas
-
+- Ordered field axioms
+- Bottom element
 
 ## Presentation of logic to the user
 

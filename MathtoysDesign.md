@@ -24,6 +24,9 @@ Wide use:
 - Menu sensitive to selection
 - Step suggestion for each menu item
 - User-selectable "algebra mode"
+- Feedback to the user
+  - Hover highlighting
+  - Solution status
 
 ## Logic
 
@@ -64,4 +67,5 @@ Wide use:
 - Expression trees
 - Hash maps with string keys
 
+## 
 

@@ -38,10 +38,12 @@ Wide use:
 - Support definitions as abbreviations
 - Also definitions justified by existence
 
-## Challenge: presenting logic types to the user
+## Challenge: presenting the logic to the user
 
 - Make presence of logical types essentially invisible
 - Naming conventions for variables, adjustable per proof
+- Implicit equivalences
+- Ellipsis in step displays
 
 ## Axiomatics
 

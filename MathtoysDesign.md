@@ -1,6 +1,16 @@
-# Designing the Mathtoys Proof Assistant for Wide Use
+# The Design of the Mathtoys Proof Assistant
 
 ### Abstract
+
+Mathtoys is a web application designed and built to serve mathematics education.
+It is implemented in JavaScript to run in Web browsers, with a modern, highly interactive
+graphical Web user interface.
+
+Its logic is a form of Church's type theory, with type variables being part of the metatheory.
+In place of supporting definition of new types, Mathtoys provides for similarly defining new
+sorts of individuals, which are not necessarily disjoint from other sorts.
+
+
 
 Wide use: 
 

@@ -10,7 +10,7 @@ Its logic is a form of Church's type theory, with type variables being part of t
 In place of supporting definition of new types, Mathtoys provides for similarly defining new
 sorts of individuals, which are not necessarily disjoint from other sorts.
 
-
+Interactivity and web worker processes.
 
 Wide use: 
 
